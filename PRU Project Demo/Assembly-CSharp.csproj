@@ -74,8 +74,10 @@
     <Compile Include="Assets\Script\Weapon\Bullet\ShotgunBulletController.cs" />
     <Compile Include="Assets\Script\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Script\Weapon\Bullet\PistolBulletController.cs" />
+    <Compile Include="Assets\Script\Enemy\EnemySpawner.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\LayerTrigger.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />
+    <Compile Include="Assets\Script\Enemy\EnemyMovement.cs" />
     <Compile Include="Assets\Script\Map\TerrainTrigger.cs" />
   </ItemGroup>
   <ItemGroup>

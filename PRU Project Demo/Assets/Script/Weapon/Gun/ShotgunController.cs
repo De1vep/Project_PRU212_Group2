@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShotgunController : WeaponController
 {
+    [SerializeField] protected int bulletPerShot;
     // Update is called once per frame
     protected override void Update()
     {
@@ -14,9 +15,20 @@ public class ShotgunController : WeaponController
     {
         base.Attack();
 
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < bulletPerShot; i++)
         {
-            Instantiate(prefab, GunPoint.position, Quaternion.Euler(GunPoint.eulerAngles.x, GunPoint.eulerAngles.y, GunPoint.eulerAngles.z + Random.Range(-spread, spread)));
+            if (i == 0)
+            {
+                Instantiate(prefab, GunPoint.position, Quaternion.Euler(GunPoint.eulerAngles.x, GunPoint.eulerAngles.y, GunPoint.eulerAngles.z - spread));
+            }
+            else if (i == bulletPerShot - 1)
+            {
+                Instantiate(prefab, GunPoint.position, Quaternion.Euler(GunPoint.eulerAngles.x, GunPoint.eulerAngles.y, GunPoint.eulerAngles.z + spread));
+            }
+            else
+            {
+                Instantiate(prefab, GunPoint.position, Quaternion.Euler(GunPoint.eulerAngles.x, GunPoint.eulerAngles.y, GunPoint.eulerAngles.z + Random.Range(-spread, spread)));
+            }
         }
 
     }

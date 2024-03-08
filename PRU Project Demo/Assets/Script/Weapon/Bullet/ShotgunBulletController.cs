@@ -11,21 +11,13 @@ public class ShotgunBulletController : BulletController
     protected override void Start()
     {
         base.Start();
+        
         controller = FindObjectOfType<ShotgunController>();
         bulletSpawnPoint = controller.GunPoint.position;
+        damage = controller.damage;
+        range = controller.range;
+
         rb.velocity = transform.right * controller.speed;
-        transform.up = controller.GunPoint.right;
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        dis = Vector2.Distance(transform.position, bulletSpawnPoint);
-        Debug.Log(dis);
-        if (dis >= controller.range)
-        {
-            Destroy(gameObject);
-        }
-    }
+        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + 90);        
+    }   
 }

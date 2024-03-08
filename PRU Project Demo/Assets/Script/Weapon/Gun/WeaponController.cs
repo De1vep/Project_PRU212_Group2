@@ -49,8 +49,8 @@ public class WeaponController : MonoBehaviour
 
     protected virtual void Attack()
     {
-        Debug.Log(GunPoint.transform.position);
         timer = fireRate;
         canFire = false;        
     }
+   
 }
