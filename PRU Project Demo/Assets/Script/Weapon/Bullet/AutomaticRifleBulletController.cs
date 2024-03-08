@@ -8,18 +8,13 @@ public class AutomaticRifleBulletController : BulletController
     protected override void Start()
     {
         base.Start();
+
         controller = FindObjectOfType<AutomaticRifleController>();
         bulletSpawnPoint = controller.GunPoint.position;
-        rb.velocity = transform.right * controller.speed;
-        transform.up = controller.GunPoint.right;
-    }
+        damage = controller.damage;
+        range = controller.range;
 
-    private void Update()
-    {
-        dis = Vector2.Distance(transform.position, bulletSpawnPoint);
-        if (dis >= controller.range)
-        {
-            Destroy(gameObject);
-        }
+        rb.velocity = transform.right * controller.speed;
+        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + 90);       
     }
 }

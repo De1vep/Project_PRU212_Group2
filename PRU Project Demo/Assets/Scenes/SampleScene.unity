@@ -754,8 +754,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3138f0b3ecb5c8348b7f94fc15e33fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  Speed: 8
+  MaxHealth: 50
   rb: {fileID: 983867421}
+  Pistol: {fileID: 1124050308}
+  Shotgun: {fileID: 1084381902}
+  AutomaticRifle: {fileID: 1805340885}
   moveDir: {x: 0, y: 0}
 --- !u!212 &983867423
 SpriteRenderer:
@@ -836,14 +840,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1084381903}
-  - component: {fileID: 1084381904}
+  - component: {fileID: 1084381905}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1084381903
 Transform:
   m_ObjectHideFlags: 0
@@ -860,7 +864,7 @@ Transform:
   - {fileID: 614596045}
   m_Father: {fileID: 983867424}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1084381904
+--- !u!114 &1084381905
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -880,7 +884,8 @@ MonoBehaviour:
   fireRate: 1.5
   pierce: 1
   range: 4
-  spread: 15
+  spread: 20
+  bulletPerShot: 8
 --- !u!1 &1123201142
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,7 +968,7 @@ MonoBehaviour:
   mainCam: {fileID: 519420031}
   GunPoint: {fileID: 1928635360}
   prefab: {fileID: 3875186347869149603, guid: ebe162a93cfa0bb4dbff0c80c3680392, type: 3}
-  damage: 10
+  damage: 15
   speed: 15
   fireRate: 0.3
   pierce: 1
@@ -1188,7 +1193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1805340886
 Transform:
   m_ObjectHideFlags: 0
@@ -1226,6 +1231,53 @@ MonoBehaviour:
   pierce: 1
   range: 9
   spread: 6
+--- !u!1 &1851339207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1851339208}
+  - component: {fileID: 1851339209}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1851339208
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851339207}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1851339209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851339207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243189bb2d0b2004b929b1c30d2f25f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 7347608774367382587, guid: 0706508ca7d59ab4bb2bbc352812d55a, type: 3}
+  playerPos: {fileID: 983867424}
+  spawnTime: 2
 --- !u!1 &1866319600 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3874363591224836704, guid: 44392e2e3c43e784e8bc7ddb86f796c4,
@@ -1332,3 +1384,4 @@ SceneRoots:
   - {fileID: 983867424}
   - {fileID: 1701630686}
   - {fileID: 1123201143}
+  - {fileID: 1851339208}
